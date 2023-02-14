@@ -1,8 +1,16 @@
+import Layout from "./components/Layout";
+import AllRoutes from "./components/Routes";
+import { AuthContextProvider } from "./contexts/auth";
+import CodeProvider from "./contexts/code";
 function App() {
 	return (
-		<div className='App'>
-			<h1>Hello from the app</h1>
-		</div>
+		<Layout>
+			<AuthContextProvider>
+				<CodeProvider>
+					<AllRoutes />
+				</CodeProvider>
+			</AuthContextProvider>
+		</Layout>
 	);
 }
 
