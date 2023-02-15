@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getLoggedInUser, loginApi } from "../api/user";
+import { getLoggedInUser, loginApi, registerApi } from "../api/user";
 import { toast } from "react-toastify";
 
 export const AuthContext = React.createContext({
@@ -10,6 +10,10 @@ export const AuthContext = React.createContext({
 	login: (email, password) => {},
 	logout: () => {},
 });
+
+export async function register({ email, password, name }) {
+	const { data } = await registerApi(name, email, password);
+}
 
 export function AuthContextProvider({ children }) {
 	const [user, setUser] = useState(null);
@@ -54,6 +58,7 @@ export function AuthContextProvider({ children }) {
 				setShowLoginForm,
 				login,
 				logout,
+				register,
 			}}>
 			{children}
 		</AuthContext.Provider>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Sidebar = ({ isSidebar, setIsSidebar }) => {
 	return (
@@ -29,9 +30,11 @@ const Sidebar = ({ isSidebar, setIsSidebar }) => {
 				<p className='mt-4 font-mono text-xs text-[#868ca0]'>
 					Try Our Free Editor
 				</p>
-				<button className='h-16 w-full mt-4 rounded-lg border-4 bg-black text-white'>
+				<Link
+					to={"/code"}
+					className='no-underline grid place-items-center h-16 w-full mt-4 rounded-lg border-4 bg-black text-white'>
 					Start Coding
-				</button>
+				</Link>
 			</div>
 			<ul>
 				<li className='ml-4 mb-2 text-white'>Search Pens</li>

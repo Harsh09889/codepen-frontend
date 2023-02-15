@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/auth";
 
-const Index = ({ isSidebar }) => {
-	const { user } = useContext(AuthContext);
+const Index = ({ isSidebar, search, setSearch }) => {
+	const { user, logout } = useContext(AuthContext);
 
 	return (
 		<nav className={`sticky my-8 mx-4 flex gap-2 ${!isSidebar && "ml-8"}`}>
@@ -23,6 +23,8 @@ const Index = ({ isSidebar }) => {
 				</svg>
 				<input
 					type='search'
+					value={search}
+					onChange={(e) => setSearch(e.target.value)}
 					className='w-full outline-none bg-transparent text-[#868ca0] border-none h-full text-xl font-medium'
 					placeholder='Search CodePen...'
 				/>
@@ -42,7 +44,9 @@ const Index = ({ isSidebar }) => {
 					</Link>
 				</>
 			) : (
-				<button className=' w-24 grid place-items-center rounded-md text-center bg-[#37d86c] hover:bg-[#248c46] hover:text-white'>
+				<button
+					onClick={(e) => logout()}
+					className=' w-24 grid place-items-center rounded-md text-center bg-[#37d86c] hover:bg-[#248c46] hover:text-white'>
 					{user?.name}
 				</button>
 			)}

@@ -5,6 +5,8 @@ import Homepage from "../Homepage";
 import Login from "../Auth/Login";
 import AuthContext from "../../contexts/auth";
 import Editor from "../EditorPage/Index";
+import Register from "../Auth/Register";
+import Github from "../Auth/Github/Index";
 
 const IfLoggedIn = ({ children }) => {
 	const { user } = useContext(AuthContext);
@@ -30,6 +32,14 @@ const AllRoutes = () => {
 					<Route
 						path='login'
 						element={<Login />}
+					/>
+					<Route
+						path='github-signin'
+						element={<Github />}
+					/>
+					<Route
+						path='register'
+						element={<Register />}
 					/>
 				</Route>
 				<Route

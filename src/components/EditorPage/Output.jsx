@@ -23,13 +23,12 @@ const srcDoc = (html, css, js) => `
 const Output = () => {
 	const { codepen } = useContext(CodeContext);
 	const ref = useRef(null);
+
 	const [localState, setLocalState] = useState({
 		html: codepen.xml,
 		css: codepen.css,
-		js: codepen.javasscript,
+		js: codepen.javascript,
 	});
-
-	console.log(codepen.javascript);
 
 	useEffect(() => {
 		if (ref.current) clearTimeout(ref.current);
@@ -39,7 +38,7 @@ const Output = () => {
 				setLocalState({
 					html: codepen.xml,
 					css: codepen.css,
-					js: codepen.javasscript,
+					js: codepen.javascript,
 				});
 			}, 1000);
 		}
@@ -54,7 +53,7 @@ const Output = () => {
 				srcDoc={srcDoc(
 					localState.html,
 					localState.css,
-					localState.javascript
+					localState.js
 				)}></iframe>
 		</div>
 	);
