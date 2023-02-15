@@ -105,9 +105,7 @@ const Header = () => {
 		}
 
 		const { data } = await postCodepen({ ...codepen, author: user._id });
-		console.log(data);
-		const { xml, javascript, css, title } = data.data;
-		dispatch({ payload: { xml, javascript, css, title, isSaved: true } });
+		dispatch({ payload: { ...data.data, isSaved: true } });
 		setSavedCodepen(data.data);
 	};
 
