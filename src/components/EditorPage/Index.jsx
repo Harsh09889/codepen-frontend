@@ -10,7 +10,7 @@ const Index = () => {
 	return (
 		<>
 			<Header />
-			<div className='flex w-screen justify-between bg-black'>
+			<div className='flex flex-col md:flex-row w-screen justify-between bg-black'>
 				<Code
 					mode='xml'
 					symbol={"/"}

@@ -34,7 +34,7 @@ const Register = () => {
 	return (
 		<div className='pt-8 min-h-screen h-full items-center flex flex-col md:flex-row   justify-end px-24'>
 			<ToastContainer />
-			<div className='flex flex-col mr-8 '>
+			<div className='flex flex-col md:mr-8 '>
 				<svg
 					viewBox='0 0 138 26'
 					fill='none'
@@ -86,8 +86,8 @@ const Register = () => {
 					Already have an account
 				</Link>
 			</div>
-			<div className='flex flex-col ml-8 w-1/2 '>
-				<button className='w-48 bg-[#57606a] py-4 text-white rounded-md'>
+			<div className='flex flex-col w-full md:ml-8 md:w-1/2'>
+				<button className='w-48text-center   bg-[#57606a] py-4 text-white rounded-md'>
 					Signup via Github
 				</button>
 			</div>

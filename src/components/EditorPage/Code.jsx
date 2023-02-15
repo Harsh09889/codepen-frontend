@@ -18,7 +18,9 @@ const Code = ({ mode, symbol, symbolColor }) => {
 	return (
 		<div
 			style={{ width: isExpanded ? "100%" : "" }}
-			className='w-[33.3%] max-w-[calc(100vw-6rem)] min-w-[10px] pb-4 flex flex-col'>
+			className={`w-full md:w-[33.3%] overflow-hidden  md:max-w-[calc(100vw-6rem)] min-w-[10px] pb-4 flex flex-col ${
+				isExpanded ? "h-full" : "h-20"
+			} md:h-full`}>
 			<div
 				className={`h-10 w-full flex justify-between items-center bg-black `}>
 				<div

@@ -25,7 +25,7 @@ const Login = () => {
 	return (
 		<div className='pt-8 min-h-screen h-full items-center flex flex-col md:flex-row   justify-end px-24'>
 			<ToastContainer />
-			<div className='flex flex-col mr-8 '>
+			<div className='flex flex-col md:mr-8 '>
 				<svg
 					viewBox='0 0 138 26'
 					fill='none'
@@ -42,7 +42,7 @@ const Login = () => {
 				</h1>
 				<form
 					onSubmit={handleLogin}
-					className='flex flex-col w-[90%] md:w-full  mx-auto gap-4 mt-8'>
+					className='flex flex-col w-full  mx-auto gap-4 mt-8'>
 					<input
 						ref={emailRef}
 						className='h-12 p-4 rounded-lg border-none outline-none'
@@ -70,10 +70,10 @@ const Login = () => {
 					Create a new account
 				</Link>
 			</div>
-			<div className='flex flex-col ml-8 w-1/2 '>
+			<div className='flex flex-col w-full md:ml-8 md:w-1/2 '>
 				<a
 					href='https://github.com/login/oauth/authorize?client_id=38dd3951b94e71a0a648'
-					className='w-48 bg-[#57606a] py-4 text-white rounded-md'>
+					className='w-48 bg-[#57606a] text-center py-4 text-white rounded-md'>
 					Login via Github
 				</a>
 			</div>

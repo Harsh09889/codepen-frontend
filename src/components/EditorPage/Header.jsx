@@ -154,6 +154,7 @@ const Header = () => {
 					<div className='flex py-2  gap-2'>
 						<Link
 							to={"/auth/login"}
+							style={{ display: user ? "grid" : "none" }}
 							className=' w-24 grid place-items-center rounded-md text-center bg-[#37d86c] hover:bg-[#248c46] hover:text-white'>
 							Sign Up
 						</Link>
