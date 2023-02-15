@@ -10,7 +10,6 @@ const Index = () => {
 
 	useEffect(() => {
 		(async () => {
-			console.log(code);
 			const { data } = await axios.get(`/auth/github/${code}`);
 			const { token, user } = data.data;
 

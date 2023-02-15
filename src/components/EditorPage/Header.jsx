@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import axios from "../../api";
-import { getCodepenByTitleApi, postCodepen } from "../../api/code";
+import { postCodepen } from "../../api/code";
 import AuthContext from "../../contexts/auth";
 import { CodeContext } from "../../contexts/code";
 
@@ -12,9 +12,6 @@ const Header = () => {
 	const [savedCodepen, setSavedCodepen] = useState(null);
 	const [isAuthor, setIsAuthor] = useState(false);
 	const [notUpdated, setNotUpdated] = useState(false);
-
-	console.log(codepen?.author?._id);
-	console.log(user?._id);
 
 	useEffect(() => {
 		(() => {
@@ -44,9 +41,10 @@ const Header = () => {
 				},
 			});
 		};
+		// eslint-disable-next-line
 	}, []);
 
-	const checkForUpdates = () => {
+	const checkForUpdates = useCallback(() => {
 		if (codepen.isSaved && isAuthor) {
 			if (
 				codepen.xml === savedCodepen?.xml &&
@@ -59,7 +57,7 @@ const Header = () => {
 				setNotUpdated(true);
 			}
 		}
-	};
+	}, [codepen, savedCodepen, isAuthor]);
 
 	useEffect(() => {
 		const timer = setInterval(() => {
@@ -67,14 +65,13 @@ const Header = () => {
 		}, 1000);
 
 		return () => clearInterval(timer);
-	}, [codepen, savedCodepen]);
+	}, [codepen, savedCodepen, checkForUpdates]);
 
 	const handleUpdateCodepen = async () => {
 		const response = await axios.patch(`/code/${codepen._id}`, {
 			...codepen,
 			author: user._id,
 		});
-		console.log("HTML REsponse", response.data.data.xml);
 		setSavedCodepen({
 			xml: response.data.data.xml,
 			css: response.data.data.css,
@@ -151,9 +148,10 @@ const Header = () => {
 				{!user ? (
 					<div className='flex py-2  gap-2'>
 						<Link
-							to={"/auth/login"}
-							style={{ display: user ? "grid" : "none" }}
-							className=' w-24 grid place-items-center rounded-md text-center bg-[#37d86c] hover:bg-[#248c46] hover:text-white'>
+							to={"/auth/register"}
+							className={`w-24 hidden md:grid place-items-center rounded-md text-center bg-[#37d86c] hover:bg-[#248c46] hover:text-white ${
+								user ? "hidden" : "grid"
+							}`}>
 							Sign Up
 						</Link>
 

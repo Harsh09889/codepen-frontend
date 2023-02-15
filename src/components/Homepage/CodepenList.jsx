@@ -3,7 +3,11 @@ import CodepenCard from "./CodepenCard";
 
 const CodepenList = ({ codepens }) => {
 	return (
-		<div className='px-8 pr-4 flex flex-col gap-4'>
+		<div
+			style={{
+				gridTemplateColumns: "repeat(auto-fill, minmax(15rem,1fr))",
+			}}
+			className='md:w-4/5 mx-auto px-8 pr-4 grid gap-4 place-content-center'>
 			{codepens.map((codepen) => (
 				<CodepenCard
 					codepen={codepen}

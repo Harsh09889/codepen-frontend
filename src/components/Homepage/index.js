@@ -1,8 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "../../api";
+import AuthContext from "../../contexts/auth";
 import Search from "../Search";
 import Sidebar from "../Sidebar/Sidebar";
 import CodepenList from "./CodepenList";
+import HeroBanner from "./HeroBanner";
+import "../../styles/loading.css";
 
 const Homepage = () => {
 	const [isSidebar, setIsSidebar] = useState(false);
@@ -10,11 +14,14 @@ const Homepage = () => {
 	const [search, setSearch] = useState("");
 	const [searchItems, setSearchItems] = useState([]);
 	const timeRef = useRef(null);
+	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
 		(async () => {
+			setLoading(true);
 			const { data } = await axios.get("/code");
 			setCodepens(data.data);
+			setLoading(false);
 		})();
 	}, []);
 
@@ -45,7 +52,14 @@ const Homepage = () => {
 					setSearch={setSearch}
 					isSidebar={isSidebar}
 				/>
-				<CodepenList codepens={searchItems.length ? searchItems : codepens} />
+
+				<HeroBanner />
+
+				{loading ? (
+					<div className='loader mx-auto mt-16'></div>
+				) : (
+					<CodepenList codepens={searchItems.length ? searchItems : codepens} />
+				)}
 			</div>
 		</div>
 	);

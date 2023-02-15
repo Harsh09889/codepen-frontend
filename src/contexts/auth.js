@@ -12,7 +12,12 @@ export const AuthContext = React.createContext({
 });
 
 export async function register({ email, password, name }) {
-	const { data } = await registerApi(name, email, password);
+	try {
+		const { data } = await registerApi(name, email, password);
+		return true;
+	} catch (error) {
+		return false;
+	}
 }
 
 export function AuthContextProvider({ children }) {

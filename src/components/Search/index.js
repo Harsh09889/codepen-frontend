@@ -32,8 +32,8 @@ const Index = ({ isSidebar, search, setSearch }) => {
 			{!user ? (
 				<>
 					<Link
-						to={"/auth/login"}
-						className=' w-24 grid place-items-center rounded-md text-center bg-[#37d86c] hover:bg-[#248c46] hover:text-white'>
+						to={"/auth/register"}
+						className=' w-24 hidden md:grid place-items-center rounded-md text-center bg-[#37d86c] hover:bg-[#248c46] hover:text-white'>
 						Sign Up
 					</Link>
 
