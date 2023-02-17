@@ -116,11 +116,11 @@ const Header = () => {
 					Click here to Save your Changes to database
 				</div>
 			)}
-			<div className='h-16 bg-black border-b flex justify-between pr-4'>
+			<div className='h-16  bg-black border-b flex justify-between pr-4'>
 				<div className='h-full flex'>
 					<Link to={"/"}>
 						<img
-							className='h-full'
+							className='h-full w-full'
 							src='https://www.vectorlogo.zone/logos/codepen/codepen-tile.svg'
 							alt='logo'
 						/>

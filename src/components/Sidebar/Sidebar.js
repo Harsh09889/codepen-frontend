@@ -35,6 +35,12 @@ const Sidebar = ({ isSidebar, setIsSidebar }) => {
 					className='no-underline grid place-items-center h-16 w-full mt-4 rounded-lg border-4 bg-black text-white'>
 					Start Coding
 				</Link>
+
+				<Link
+					to={"/collaborate"}
+					className='no-underline grid place-items-center h-16 w-full mt-4 rounded-lg border-4 bg-black text-white'>
+					Collaborate
+				</Link>
 			</div>
 
 			<ul className='flex flex-col gap-4'>

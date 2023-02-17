@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { Controlled as Editor } from "react-codemirror2";
 import "codemirror/mode/xml/xml";
 import "codemirror/mode/javascript/javascript";
@@ -6,12 +6,14 @@ import "codemirror/mode/css/css";
 import { CodeContext } from "../../contexts/code";
 
 const Code = ({ mode, symbol, symbolColor }) => {
+	const editorRef = useRef(null);
 	const { codepen, dispatch } = useContext(CodeContext);
 
 	const [isExpanded, setIsExpanded] = useState(false);
 
-	const handleChange = (editor, data, value) => {
-		// console.log(change);
+	const handleChange = (editor, changes, value) => {
+		console.log(changes);
+
 		dispatch({ payload: { [mode]: value } });
 	};
 
@@ -80,6 +82,7 @@ const Code = ({ mode, symbol, symbolColor }) => {
 				</div>
 			</div>
 			<Editor
+				ref={editorRef}
 				value={codepen[mode]}
 				className='controlled-editor'
 				onBeforeChange={handleChange}

@@ -11,6 +11,7 @@ export const AuthContext = React.createContext({
 	logout: () => {},
 });
 
+
 export async function register({ email, password, name }) {
 	try {
 		const { data } = await registerApi(name, email, password);

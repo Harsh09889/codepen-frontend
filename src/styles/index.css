@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.CodeMirror {
+	width: 100% !important;
+	font-size: larger;
+}
+
 .react-codemirror2 {
 	width: 100% !important;
 	font-size: larger;

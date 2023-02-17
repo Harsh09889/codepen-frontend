@@ -7,6 +7,8 @@ import AuthContext from "../../contexts/auth";
 import Editor from "../EditorPage/Index";
 import Register from "../Auth/Register";
 import Github from "../Auth/Github/Index";
+import Collaborate from "../Collaborate/Collaborate.jsx";
+import Room from "../Collaborate/Room";
 
 const IfLoggedIn = ({ children }) => {
 	const { user } = useContext(AuthContext);
@@ -46,6 +48,18 @@ const AllRoutes = () => {
 					path='/code'
 					element={<Editor />}
 				/>
+				<Route
+					path='/'
+					element={<IfLoggedIn />}>
+					<Route
+						path='/collaborate'
+						element={<Collaborate />}
+					/>
+					<Route
+						path='/collaborate/:roomId'
+						element={<Room />}
+					/>
+				</Route>
 			</Routes>
 		</div>
 	);

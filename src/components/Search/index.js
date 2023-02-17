@@ -44,11 +44,16 @@ const Index = ({ isSidebar, search, setSearch }) => {
 					</Link>
 				</>
 			) : (
-				<button
-					onClick={(e) => logout()}
-					className=' w-24 grid place-items-center rounded-md text-center bg-[#37d86c] hover:bg-[#248c46] hover:text-white'>
-					{user?.name}
-				</button>
+				<>
+					<h2 className='bg-white px-4 text-center grid place-items-center rounded-full'>
+						{user?.name}
+					</h2>
+					<button
+						onClick={(e) => logout()}
+						className=' w-24 grid place-items-center rounded-md text-center bg-[#37d86c] hover:bg-[#248c46] hover:text-white'>
+						Logout
+					</button>
+				</>
 			)}
 		</nav>
 	);

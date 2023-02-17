@@ -19,7 +19,7 @@ const srcDoc = (html, css, js) => `
 </html>
 
 `;
-
+//
 const Output = () => {
 	const { codepen } = useContext(CodeContext);
 	const ref = useRef(null);
@@ -45,16 +45,13 @@ const Output = () => {
 	}, [codepen]);
 
 	return (
-		<div className='w-screen bg-white h-[calc(40vh)]'>
+		<div className=' flex w-screen flex-col  bg-white h-[40vh]'>
 			<iframe
-				className='w-full h-full'
+				className='h-full w-full'
 				title='Output'
 				sandbox='allow-scripts'
-				srcDoc={srcDoc(
-					localState.html,
-					localState.css,
-					localState.js
-				)}></iframe>
+				srcDoc={srcDoc(localState.html, localState.css, localState.js)}
+			/>
 		</div>
 	);
 };

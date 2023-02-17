@@ -3,16 +3,20 @@ import AllRoutes from "./components/Routes";
 import { AuthContextProvider } from "./contexts/auth";
 import CodeProvider from "./contexts/code";
 import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 function App() {
 	return (
-		<Layout>
-			<AuthContextProvider>
-				<CodeProvider>
-					<AllRoutes />
-				</CodeProvider>
-			</AuthContextProvider>
-		</Layout>
+		<>
+			<ToastContainer />
+			<Layout>
+				<AuthContextProvider>
+					<CodeProvider>
+						<AllRoutes />
+					</CodeProvider>
+				</AuthContextProvider>
+			</Layout>
+		</>
 	);
 }
 
